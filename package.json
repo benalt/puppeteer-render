@@ -1,16 +1,20 @@
 {
-  "name": "puppeteer-render",
+  "name": "express-puppeteer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index --env-file=.env",
     "start": "node index"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "puppeteer": "^22.6.1"
