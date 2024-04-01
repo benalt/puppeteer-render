@@ -14,7 +14,7 @@ app.post('/capture', async (req, res) => {
   const captureConfig = req.body.captureConfig;
   const auth = req.body.auth
 
-  if (auth.apiKey !== env.API_KEY) {
+  if (auth.apiKey !== process.env.API_KEY) {
     res.send(401)
     return
   }
