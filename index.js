@@ -14,10 +14,10 @@ app.post('/capture', async (req, res) => {
   const captureConfig = req.body.captureConfig;
   const auth = req.body.auth
 
-  //if (auth.apiKey !== env.API_KEY) {
-  //  res.send(401)
-  //  return
-  //}
+  if (auth.apiKey !== env.API_KEY) {
+    res.send(401)
+    return
+  }
 
   if (!captureConfig.url) {
     res.sendStatus(400)
@@ -31,13 +31,13 @@ app.post('/capture', async (req, res) => {
   } catch (err) {
     console.log(err)
     res.sendStatus(500)
-  }*
+  }
 })
 
 const sleep = m => new Promise(r => setTimeout(r, m))
 
 async function capture(captureConfig, res) {
-
+  
   const browser = await puppeteer.launch({
     args: [
       "--disable-setuid-sandbox",
